@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,31 +8,35 @@
     <title>GDSC Lebanese University</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <script src="https://unpkg.com/vue@3"></script>
+
 </head>
-<body>
+
+<body id="app">
     <header>
         <div class="profile-pic">
             <img src="./assets/logo.svg" alt="Google Developer Student Clubs">
         </div>
         <div class="profile-bio">
             <h1>Lebanese University Faculty of Sciences 1</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor facilis harum recusandae omnis suscipit reprehenderit atque labore aspernatur, consequatur accusamus.</p>
+            <p>{{profile.bio}}</p>
         </div>
         <div class="social-media-box">
-            <a href=""><i class="bi bi-linkedin"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-youtube"></i></a>
-            <a href=""><i class="bi bi-twitter"></i></a>
+            <a :href="profile.linkedIn"><i class="bi bi-linkedin"></i></a>
+            <a :href="profile.instagram"><i class="bi bi-instagram"></i></a>
+            <a :href="profile.facebook"><i class="bi bi-facebook"></i></a>
+            <a :href="profile.youtube"><i class="bi bi-youtube"></i></a>
+            <a :href="profile.twitter"><i class="bi bi-twitter"></i></a>
         </div>
     </header>
     <hr>
-    <section>
+    <main>
         <ul>
-            <li><i class="bi bi-hash"></i><span>TAG</span></li>
-            <li><i class="bi bi-link-45deg"></i><span>LINK</span></li>
+            <li v-for="link in profile.links"><i class="bi bi-link-45deg link"></i> <a :href="link.url">{{link.name}}</a> </li>
         </ul>
-    </section>
+    </main>
+
     <script src="app.js"></script>
 </body>
+
 </html>
